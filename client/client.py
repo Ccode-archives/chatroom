@@ -67,7 +67,7 @@ while running:
             else:
                 hostname = socket.gethostname()
                 local_ip = socket.gethostbyname(hostname)
-                server.send(style.RED + local_ip + " Has left the server" + style.RESET)
+                server.send(style.RED + " Has left the server" + style.RESET)
                 running = False
                 break
             sys.stdout.write(style.GREEN + "<You> " + style.RESET) 
