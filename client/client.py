@@ -66,7 +66,7 @@ while running:
                 server.send(style.YELLOW + local_ip + " Has left the server" + style.RESET)
                 running = False
                 break
-            sys.stdout.write("<You>") 
+            sys.stdout.write(style.YELLOW + "<You> " + style.RESET) 
             sys.stdout.write(message) 
             sys.stdout.flush() 
 server.close()
