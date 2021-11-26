@@ -1,5 +1,5 @@
 ## chatroom
-a chatroom based on tutorial from geeksforgeeks.
+A chatroom based on tutorial from geeksforgeeks.
 ## running
 # server
 ```

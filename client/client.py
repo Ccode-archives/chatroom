@@ -3,6 +3,26 @@
 import socket 
 import select 
 import sys 
+import os
+
+# System call for windows
+os.system("")
+
+# Class of different styles
+class style():
+    BLACK = '\033[30m'
+    RED = '\033[31m'
+    GREEN = '\033[32m'
+    YELLOW = '\033[33m'
+    BLUE = '\033[34m'
+    MAGENTA = '\033[35m'
+    CYAN = '\033[36m'
+    WHITE = '\033[37m'
+    UNDERLINE = '\033[4m'
+    RESET = '\033[0m'
+
+
+
 def delete_last_line():
     #cursor up one line
     sys.stdout.write('\x1b[1A')
@@ -14,7 +34,11 @@ if len(sys.argv) != 3:
     exit() 
 IP_address = str(sys.argv[1]) 
 Port = int(sys.argv[2]) 
-server.connect((IP_address, Port)) 
+try:
+    server.connect((IP_address, Port)) 
+except:
+    raise OSError(style.RED + "Could not connect to server!" + style.RESET)
+
 running = True
 while running: 
   
@@ -43,10 +67,10 @@ while running:
             else:
                 hostname = socket.gethostname()
                 local_ip = socket.gethostbyname(hostname)
-                server.send(local_ip + " Has left the server")
+                server.send(style.RED + local_ip + " Has left the server" + style.RESET)
                 running = False
                 break
-            sys.stdout.write("<You>") 
+            sys.stdout.write(style.GREEN + "<You> " + style.RESET) 
             sys.stdout.write(message) 
             sys.stdout.flush() 
 server.close()
