@@ -46,6 +46,7 @@ try:
     server.bind((IP_address, Port)) 
 except:
     raise OSError(style.RED + "Server was unable to bind to port" + style.RESET)
+print(style.GREEN + "Server started without error!" + style.RESET)
 """ 
 listens for 100 active connections. This number can be 
 increased as per convenience. 
