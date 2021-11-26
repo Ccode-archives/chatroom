@@ -42,8 +42,10 @@ binds the server to an entered IP address and at the
 specified port number. 
 The client must be aware of these parameters 
 """
-server.bind((IP_address, Port)) 
-  
+try:
+    server.bind((IP_address, Port)) 
+except:
+    raise OSError(style.RED + "Server was unable to bind to port" + style.RESET)
 """ 
 listens for 100 active connections. This number can be 
 increased as per convenience. 
