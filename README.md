@@ -11,3 +11,6 @@ python client/client.py <ip of server> <port of server>
 ```
 ## thanks to
 Geeksforgeeks
+## problems that will not be fixed
+ * getting a message while typing splits input
+ * blank terminal when server stops.
