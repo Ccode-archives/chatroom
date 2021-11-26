@@ -34,7 +34,11 @@ if len(sys.argv) != 3:
     exit() 
 IP_address = str(sys.argv[1]) 
 Port = int(sys.argv[2]) 
-server.connect((IP_address, Port)) 
+try:
+    server.connect((IP_address, Port)) 
+except:
+    raise OSError(style.RED + "Could not connect to server!" + style.RESET)
+
 running = True
 while running: 
   
