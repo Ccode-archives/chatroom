@@ -4,6 +4,23 @@ import socket
 import select 
 import sys 
 from thread import *
+import os
+
+# System call for windows
+os.system("")
+
+# Class of different styles
+class style():
+    BLACK = '\033[30m'
+    RED = '\033[31m'
+    GREEN = '\033[32m'
+    YELLOW = '\033[33m'
+    BLUE = '\033[34m'
+    MAGENTA = '\033[35m'
+    CYAN = '\033[36m'
+    WHITE = '\033[37m'
+    UNDERLINE = '\033[4m'
+    RESET = '\033[0m'
   
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
@@ -48,10 +65,10 @@ def clientthread(conn, addr):
                     """prints the message and address of the 
                     user who just sent the message on the server 
                     terminal"""
-                    print ("<" + addr[0] + "> " + message) 
+                    print (style.YELLOW + "<" + addr[0] + "> " + style.RESET + message) 
   
                     # Calls broadcast function to send message to all 
-                    message_to_send = "<" + addr[0] + "> " + message 
+                    message_to_send = style.YELLOW + "<" + addr[0] + "> " + style.RESET + message
                     broadcast(message_to_send, conn) 
   
                 else: 
