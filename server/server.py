@@ -79,12 +79,6 @@ def clientthread(conn, addr):
                     """message may have no content if the connection 
                     is broken, in this case we remove the connection"""
                     remove(conn) 
-                if not join == "":
-                    continue
-                else:
-                    broadcast(join + " has joined", conn)
-                    join = ""
-  
             except: 
                 continue
   
@@ -122,6 +116,7 @@ while True:
     # prints the address of the user that just connected 
     print(addr[0] + " connected")
     join = addr[0]
+    broadcast(addr[0] + " connected", "filler")
     # creates and individual thread for every user 
     # that connects 
     start_new_thread(clientthread,(conn,addr))     
