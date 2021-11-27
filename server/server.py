@@ -54,6 +54,7 @@ increased as per convenience.
 server.listen(100) 
   
 list_of_clients = [] 
+join = ""
   
 def clientthread(conn, addr): 
   
@@ -78,7 +79,6 @@ def clientthread(conn, addr):
                     """message may have no content if the connection 
                     is broken, in this case we remove the connection"""
                     remove(conn) 
-  
             except: 
                 continue
   
@@ -115,6 +115,8 @@ while True:
     list_of_clients.append(conn) 
     # prints the address of the user that just connected 
     print(addr[0] + " connected")
+    join = addr[0]
+    broadcast(join + " connected", "filler")
     # creates and individual thread for every user 
     # that connects 
     start_new_thread(clientthread,(conn,addr))     
