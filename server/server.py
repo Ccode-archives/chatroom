@@ -116,7 +116,7 @@ while True:
     # prints the address of the user that just connected 
     print(addr[0] + " connected")
     join = addr[0]
-    broadcast(join + " connected", join)
+    broadcast(join + " connected", "filler")
     # creates and individual thread for every user 
     # that connects 
     start_new_thread(clientthread,(conn,addr))     
